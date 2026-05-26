@@ -104,7 +104,7 @@ function LoginUser() {
                                 />
                             </svg>
                             <span className="text-2xl font-bold text-white">
-                                SânBóng<span className="text-white/80">Pro</span>
+                                Alo<span className="text-white/80">Booking</span>
                             </span>
                         </Link>
 

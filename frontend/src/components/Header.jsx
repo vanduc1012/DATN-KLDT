@@ -175,7 +175,7 @@ function Header() {
                             </svg>
                         </div>
                         <span className="text-xl font-bold text-[#16A34A] tracking-tight">
-                            SânBóng<span className="text-slate-900">Pro</span>
+                            Alo<span className="text-slate-900">Booking</span>
                         </span>
                     </Link>
 

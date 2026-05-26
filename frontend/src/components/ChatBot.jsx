@@ -47,7 +47,7 @@ function Chatbot() {
                         _id: 'welcome',
                         sender: 'bot',
                         content:
-                            '⚽ Xin chào! Tôi là SânBóngBot\n\nTôi có thể giúp bạn:\n• Xem giá thuê sân\n• Thông tin giờ mở cửa\n• Hướng dẫn đặt sân\n• Gợi ý khung giờ trống\n\nHãy hỏi tôi bất cứ điều gì! 😊',
+                            '⚽ Xin chào! Tôi là AloBookingBot\n\nTôi có thể giúp bạn:\n• Xem giá thuê sân\n• Thông tin giờ mở cửa\n• Hướng dẫn đặt sân\n• Gợi ý khung giờ trống\n\nHãy hỏi tôi bất cứ điều gì! 😊',
                         timestamp: new Date(),
                     },
                 ]);
@@ -183,7 +183,7 @@ function Chatbot() {
                                     ⚽
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white text-lg tracking-wide">SânBóngBot</h3>
+                                    <h3 className="font-bold text-white text-lg tracking-wide">AloBookingBot</h3>
                                     <div className="flex items-center gap-1.5">
                                         <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                                         <span className="text-green-300 text-xs">Đang hoạt động</span>
@@ -373,7 +373,7 @@ function Chatbot() {
                     </div>
                 </div>
             ) : (
-                <Tooltip title="Chat với SânBóngBot" placement="left">
+                <Tooltip title="Chat với AloBookingBot" placement="left">
                     <div className="relative">
                         <button
                             onClick={() => setIsOpen(true)}

@@ -102,8 +102,8 @@ function Sidebar() {
                         <rect x="32" y="13" width="6" height="14" stroke="#16A34A" strokeWidth="1.5" fill="none" />
                     </svg>
                     <div>
-                        <span className="text-lg font-bold text-[#16A34A]">SânBóng</span>
-                        <span className="text-lg font-bold text-gray-800">Pro</span>
+                        <span className="text-lg font-bold text-[#16A34A]">Alo</span>
+                        <span className="text-lg font-bold text-gray-800">Booking</span>
                         <span className="block text-[10px] text-gray-400 -mt-1">Admin Panel</span>
                     </div>
                 </Link>

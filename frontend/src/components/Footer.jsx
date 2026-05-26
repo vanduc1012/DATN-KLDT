@@ -19,7 +19,7 @@ function Footer() {
                                 </svg>
                             </div>
                             <span className="text-xl font-bold text-[#16A34A] tracking-tight">
-                                SânBóng<span className="text-slate-900">Pro</span>
+                                Alo<span className="text-slate-900">Booking</span>
                             </span>
                         </Link>
                         <p className="text-gray-500 mb-6 leading-relaxed">
@@ -135,10 +135,10 @@ function Footer() {
                             <li className="flex items-center gap-3 text-gray-500">
                                 <Mail className="w-5 h-5 text-[#16A34A] flex-shrink-0" />
                                 <a
-                                    href="mailto:contact@sanbongpro.com"
+                                    href="mailto:contact@alobooking.com"
                                     className="hover:text-[#16A34A] transition-colors"
                                 >
-                                    contact@sanbongpro.com
+                                    contact@alobooking.com
                                 </a>
                             </li>
                         </ul>
@@ -148,7 +148,7 @@ function Footer() {
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-gray-500 text-sm">
-                        © {new Date().getFullYear()} SânBóngPro. All rights reserved.
+                        © {new Date().getFullYear()} AloBooking. All rights reserved.
                     </p>
                     <div className="flex items-center gap-6 text-sm text-gray-500">
                         <Link to="/privacy" className="hover:text-[#16A34A] transition-colors">

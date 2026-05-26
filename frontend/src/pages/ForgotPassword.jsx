@@ -476,7 +476,7 @@ function ForgotPassword() {
                                 <rect x="32" y="13" width="6" height="14" stroke="white" strokeWidth="1.5" fill="none" />
                             </svg>
                             <span className="text-2xl font-bold text-white">
-                                SânBóng<span className="text-white/80">Pro</span>
+                                Alo<span className="text-white/80">Booking</span>
                             </span>
                         </Link>
 
@@ -572,7 +572,7 @@ function ForgotPassword() {
                         {step !== 3 && (
                             <p className="text-center mt-6 text-sm text-gray-400">
                                 Cần hỗ trợ?{' '}
-                                <a href="mailto:support@sanbongpro.vn" className="text-gray-500 hover:text-[#16A34A] transition-colors">
+                                <a href="mailto:support@alobooking.vn" className="text-gray-500 hover:text-[#16A34A] transition-colors">
                                     Liên hệ chúng tôi
                                 </a>
                             </p>
