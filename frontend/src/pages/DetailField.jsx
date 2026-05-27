@@ -41,8 +41,15 @@ function DetailField() {
     const [reviews, setReviews] = useState([]);
     const [reviewStats, setReviewStats] = useState({ averageRating: 0, totalReviews: 0 });
 
+    const getLocalDateString = (date) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    };
+
     // Format date string for socket
-    const dateStr = selectedDate.toISOString().split('T')[0];
+    const dateStr = getLocalDateString(selectedDate);
 
     // Socket hook for realtime slot holding
     const { isConnected, heldByOthers, holdSlots, releaseSlots, isSlotHeldByOthers } = useSlotSocket({
@@ -124,7 +131,7 @@ function DetailField() {
         if (!id || !selectedDate) return;
         const fetchBookings = async () => {
             try {
-                const res = await getBookingsByField(id, selectedDate.toISOString());
+                const res = await getBookingsByField(id, getLocalDateString(selectedDate));
                 setBookedSlots(res.metadata || []);
                 // Filter out selected slots if they are now booked (optional but good UX)
                 setSelectedTimeSlots((prev) =>
@@ -553,7 +560,10 @@ function DetailField() {
                                                     `${s.startTime}-${s.endTime}` ===
                                                     `${slot.startTime}-${slot.endTime}`,
                                             );
-                                            const isDisabled = isBooked || isHeldByOther;
+                                            // Disable if booked, held by other, or time already passed for selected date
+                                            const slotDateTime = new Date(`${dateStr}T${slot.startTime}:00`);
+                                            const isPastSlot = slotDateTime.getTime() < Date.now();
+                                            const isDisabled = isBooked || isHeldByOther || (isPastSlot && isToday(selectedDate));
 
                                             return (
                                                 <button
@@ -576,6 +586,9 @@ function DetailField() {
                                                     {slot.startTime} - {slot.endTime}
                                                     {isBooked && (
                                                         <span className="block text-[10px] font-normal">Đã đặt</span>
+                                                    )}
+                                                    {isPastSlot && isToday(selectedDate) && !isBooked && (
+                                                        <span className="block text-[10px] font-normal text-gray-400">Đã qua</span>
                                                     )}
                                                     {isHeldByOther && !isBooked && (
                                                         <span className="block text-[10px] font-normal animate-pulse">
@@ -732,7 +745,7 @@ function DetailField() {
                                         state: {
                                             bookingId: uuidv4(),
                                             field,
-                                            selectedDate: selectedDate.toISOString(),
+                                            selectedDate: getLocalDateString(selectedDate),
                                             selectedSlots: selectedTimeSlots,
                                         },
                                     });

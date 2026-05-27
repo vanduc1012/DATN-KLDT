@@ -31,7 +31,6 @@ function ReviewModal({ open, onClose, bookingId, fieldId, fieldName, onSuccess }
             setLoading(false);
         }
     };
-
     const ratingLabels = {
         1: 'Rất tệ',
         2: 'Tệ',
@@ -39,7 +38,6 @@ function ReviewModal({ open, onClose, bookingId, fieldId, fieldName, onSuccess }
         4: 'Tốt',
         5: 'Tuyệt vời',
     };
-
     return (
         <Modal
             open={open}

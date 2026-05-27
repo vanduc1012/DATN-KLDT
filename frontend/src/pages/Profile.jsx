@@ -19,7 +19,7 @@ import {
     Star,
 } from 'lucide-react';
 import { message } from 'antd';
-import { getUserBookings } from '../config/BookingRequest';
+import { getUserBookings, cancelBooking } from '../config/BookingRequest';
 import { requestUpdateUser, requestLogout, requestChangePassword, requestUploadAvatar } from '../config/UserRequest.jsx';
 import cookies from 'js-cookie';
 import Footer from '../components/Footer.jsx';
@@ -97,8 +97,10 @@ function Profile() {
     const statusConfig = {
         pending: { label: 'Chờ xác nhận', color: 'bg-yellow-100 text-yellow-700' },
         confirmed: { label: 'Đã xác nhận', color: 'bg-blue-100 text-blue-700' },
+        paid: { label: 'Đã thanh toán', color: 'bg-cyan-100 text-cyan-700' },
         in_progress: { label: 'Đang bắt đầu', color: 'bg-purple-100 text-purple-700' },
         completed: { label: 'Đã xong', color: 'bg-green-100 text-green-700' },
+        cancelled: { label: 'Đã hủy', color: 'bg-red-100 text-red-700' },
     };
 
     const formatPrice = (price) => {
@@ -201,6 +203,28 @@ function Profile() {
             return;
         }
         setActiveTab(id);
+    };
+
+    const isFutureBooking = (booking) => {
+        const bookingDate = new Date(booking.bookingDate);
+        const dateStr = bookingDate.toISOString().split('T')[0];
+        const slotDateTime = new Date(`${dateStr}T${booking.startTime}:00`);
+        return slotDateTime.getTime() > Date.now();
+    };
+
+    const handleCancelBooking = async (booking) => {
+        if (!booking) return;
+        try {
+            await cancelBooking(booking.bookingId || booking._id);
+            message.success('Đã hủy đơn đặt sân thành công');
+            const res = await getUserBookings();
+            if (res.metadata) {
+                setBookings(res.metadata);
+            }
+        } catch (error) {
+            message.error(error.response?.data?.message || 'Hủy đơn đặt sân thất bại');
+            console.error('Cancel booking error:', error);
+        }
     };
 
     const pendingBookings = bookings.filter((b) => b.status === 'pending');
@@ -508,6 +532,14 @@ function Profile() {
                                                                     >
                                                                         <Star className="w-4 h-4" />
                                                                         Đánh giá
+                                                                    </button>
+                                                                )}
+                                                                {['pending', 'confirmed', 'paid'].includes(booking.status) && isFutureBooking(booking) && (
+                                                                    <button
+                                                                        onClick={() => handleCancelBooking(booking)}
+                                                                        className="px-3 py-1 bg-red-100 text-red-700 rounded-lg text-sm font-semibold hover:bg-red-200 transition-colors"
+                                                                    >
+                                                                        Hủy
                                                                     </button>
                                                                 )}
                                                             </div>

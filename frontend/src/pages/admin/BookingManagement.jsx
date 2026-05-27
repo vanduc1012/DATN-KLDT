@@ -22,8 +22,10 @@ function BookingManagement() {
     const statusConfig = {
         pending: { label: 'Chờ xác nhận', color: 'bg-yellow-100 text-yellow-700', icon: Clock },
         confirmed: { label: 'Đã xác nhận', color: 'bg-blue-100 text-blue-700', icon: CheckCircle },
+        paid: { label: 'Đã thanh toán', color: 'bg-cyan-100 text-cyan-700', icon: Banknote },
         in_progress: { label: 'Đang bắt đầu', color: 'bg-purple-100 text-purple-700', icon: Clock },
         completed: { label: 'Đã xong', color: 'bg-green-100 text-green-700', icon: CheckCircle },
+        cancelled: { label: 'Đã hủy', color: 'bg-red-100 text-red-700', icon: XCircle },
     };
 
     // Payment method labels
@@ -115,6 +117,7 @@ function BookingManagement() {
         confirmed: bookings.filter((b) => b.status === 'confirmed').length,
         in_progress: bookings.filter((b) => b.status === 'in_progress').length,
         completed: bookings.filter((b) => b.status === 'completed').length,
+        cancelled: bookings.filter((b) => b.status === 'cancelled').length,
     };
 
     return (
@@ -200,6 +203,7 @@ function BookingManagement() {
                             { value: 'confirmed', label: 'Đã xác nhận' },
                             { value: 'in_progress', label: 'Đang bắt đầu' },
                             { value: 'completed', label: 'Đã xong' },
+                            { value: 'cancelled', label: 'Đã hủy' },
                         ]}
                     />
 
@@ -312,8 +316,10 @@ function BookingManagement() {
                                                 options={[
                                                     { value: 'pending', label: 'Chờ xác nhận' },
                                                     { value: 'confirmed', label: 'Đã xác nhận' },
+                                                    { value: 'paid', label: 'Đã thanh toán' },
                                                     { value: 'in_progress', label: 'Đang diễn ra' },
                                                     { value: 'completed', label: 'Đã xong' },
+                                                    { value: 'cancelled', label: 'Đã hủy' },
                                                 ]}
                                             />
                                         </td>
@@ -467,6 +473,7 @@ function BookingManagement() {
                                     { value: 'confirmed', label: '✅ Đã xác nhận' },
                                     { value: 'in_progress', label: '🏃 Đang bắt đầu' },
                                     { value: 'completed', label: '✅ Đã xong' },
+                                    { value: 'cancelled', label: '❌ Đã hủy' },
                                 ]}
                             />
                         </div>
