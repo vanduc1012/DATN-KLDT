@@ -123,7 +123,7 @@ function Footer() {
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3 text-gray-500">
                                 <MapPin className="w-5 h-5 text-[#16A34A] flex-shrink-0 mt-0.5" />
-                                <span>123 Đường Nguyễn Văn Linh, Quận Thanh Khê, TP. Đà Nẵng</span>
+                                <span>52 Hoàng Xuân Nhị ,Hải Châu ,Đà Nẵng</span>
                             </li>
                             <li className="flex items-center gap-3 text-gray-500">
                                 <Phone className="w-5 h-5 text-[#16A34A] flex-shrink-0" />

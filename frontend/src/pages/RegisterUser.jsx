@@ -68,7 +68,7 @@ function RegisterUser() {
                     {/* Content */}
                     <div className="relative z-10 flex flex-col justify-center px-12 lg:px-16 xl:px-24">
                         {/* Logo */}
-                        <Link to="/" className="flex items-center gap-2.5 mb-12">
+                        <Link to="/" className="flex items-center gap-2.5 mb-6">
                             <svg viewBox="0 0 40 40" className="w-12 h-12" fill="none">
                                 <rect
                                     x="2"
@@ -98,33 +98,30 @@ function RegisterUser() {
                             </span>
                         </Link>
 
-                        {/* Slogan */}
-                        <h1 className="text-4xl xl:text-5xl font-bold text-white leading-tight mb-6">
-                            Tham gia cộng đồng
+                        {/* Main marketing content to match provided design */}
+                        <h1 className="text-4xl xl:text-5xl font-extrabold text-white leading-tight mb-4">
+                            Đăng ký miễn phí
                             <br />
-                            <span className="text-[#86efac]">yêu bóng đá</span>
-                            <br />
-                            lớn nhất Việt Nam
+                            <span className="text-[#86efac]">quản lý sân ngay hôm nay</span>
                         </h1>
 
-                        <p className="text-lg text-white/70 max-w-md leading-relaxed mb-10">
-                            Đăng ký ngay để trải nghiệm đặt sân thông minh, nhận ưu đãi độc quyền và kết nối với cộng
-                            đồng.
+                        <p className="text-lg text-white/80 max-w-lg leading-relaxed mb-8">
+                            Chỉ cần 30 giây để tạo tài khoản. Thêm chi nhánh, sân và bắt đầu nhận đặt lịch trực tuyến ngay
+                            sau khi đăng nhập.
                         </p>
 
-                        {/* Stats */}
-                        <div className="grid grid-cols-3 gap-6">
-                            <div className="text-center">
-                                <p className="text-3xl font-bold text-white">500+</p>
-                                <p className="text-sm text-white/60 mt-1">Sân bóng</p>
+                        <div className="grid grid-cols-2 gap-4 max-w-md">
+                            <div className="px-4 py-3 rounded-lg bg-white/6 border border-white/8 text-white">
+                                Miễn phí 30 ngày
                             </div>
-                            <div className="text-center">
-                                <p className="text-3xl font-bold text-white">50K+</p>
-                                <p className="text-sm text-white/60 mt-1">Thành viên</p>
+                            <div className="px-4 py-3 rounded-lg bg-white/6 border border-white/8 text-white">
+                                Đăng ký 30 giây
                             </div>
-                            <div className="text-center">
-                                <p className="text-3xl font-bold text-white">4.9</p>
-                                <p className="text-sm text-white/60 mt-1">Đánh giá</p>
+                            <div className="px-4 py-3 rounded-lg bg-white/6 border border-white/8 text-white">
+                                Lưu trữ cloud an toàn
+                            </div>
+                            <div className="px-4 py-3 rounded-lg bg-white/6 border border-white/8 text-white">
+                                Hỗ trợ cài đặt 1-1
                             </div>
                         </div>
                     </div>
@@ -136,13 +133,16 @@ function RegisterUser() {
 
                 {/* Right Side - Register Form */}
                 <div className="flex-1 flex items-center justify-center px-6 py-12 lg:px-12">
-                    <div className="w-full max-w-[480px]">
+                    <div className="w-full max-w-[520px]">
                         {/* Form Card */}
-                        <div className="bg-white rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.08)] p-8 lg:p-10">
+                        <div className="bg-white rounded-2xl shadow-[0_8px_40px_rgba(2,6,23,0.12)] p-6 lg:p-8">
                             {/* Header */}
-                            <div className="text-center mb-8">
-                                <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-2">Đăng ký tài khoản</h2>
-                                <p className="text-gray-500">Tạo tài khoản mới để bắt đầu đặt sân</p>
+                            <div className="mb-6">
+                                <div className="inline-block px-3 py-1 rounded-full bg-green-50 text-green-600 text-xs font-semibold mb-3">
+                                    TẠO TÀI KHOẢN CHỦ SÂN
+                                </div>
+                                <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Bắt đầu hành trình của bạn 🚀</h2>
+                                <p className="text-gray-500 text-sm">Tạo tài khoản để bắt đầu quản lý sân thể thao chuyên nghiệp</p>
                             </div>
 
                             {/* Form */}
@@ -167,39 +167,58 @@ function RegisterUser() {
                                     </div>
                                 </div>
 
-                                {/* Email Input */}
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                                    <div className="relative">
-                                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                            placeholder="Nhập email của bạn"
-                                            className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg
-                                                     text-gray-700 placeholder-gray-400
-                                                     focus:outline-none focus:ring-2 focus:ring-[#16A34A]/20 focus:border-[#16A34A]
-                                                     transition-all duration-200"
-                                            required
-                                        />
+                                {/* Email & Phone - two columns on md+ */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Số điện thoại</label>
+                                        <div className="relative">
+                                            <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                            <input
+                                                type="tel"
+                                                name="phone"
+                                                value={formData.phone}
+                                                onChange={handleChange}
+                                                placeholder="0901 234 567"
+                                                className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg
+                                                         text-gray-700 placeholder-gray-400
+                                                         focus:outline-none focus:ring-2 focus:ring-[#16A34A]/20 focus:border-[#16A34A]
+                                                         transition-all duration-200"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                        <div className="relative">
+                                            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                placeholder="email@example.com"
+                                                className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg
+                                                         text-gray-700 placeholder-gray-400
+                                                         focus:outline-none focus:ring-2 focus:ring-[#16A34A]/20 focus:border-[#16A34A]
+                                                         transition-all duration-200"
+                                                required
+                                            />
+                                        </div>
                                     </div>
                                 </div>
 
-                                {/* Phone Input */}
+                                {/* Full Name Input */}
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Số điện thoại
-                                    </label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Họ và tên</label>
                                     <div className="relative">
-                                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                                         <input
-                                            type="tel"
-                                            name="phone"
-                                            value={formData.phone}
+                                            type="text"
+                                            name="fullName"
+                                            value={formData.fullName}
                                             onChange={handleChange}
-                                            placeholder="Nhập số điện thoại"
+                                            placeholder="Nguyễn Văn A"
                                             className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg
                                                      text-gray-700 placeholder-gray-400
                                                      focus:outline-none focus:ring-2 focus:ring-[#16A34A]/20 focus:border-[#16A34A]
@@ -304,13 +323,13 @@ function RegisterUser() {
                                 {/* Register Button */}
                                 <button
                                     type="submit"
-                                    className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#16A34A] hover:bg-[#15803d] 
-                                             text-white font-semibold rounded-lg
-                                             shadow-[0_4px_12px_rgba(22,163,74,0.3)] hover:shadow-[0_6px_16px_rgba(22,163,74,0.4)]
-                                             transition-all duration-200 active:scale-[0.98]"
+                                    className="w-full flex items-center justify-center gap-3 py-3.5
+                                             bg-gradient-to-r from-[#24c26b] to-[#16A34A]
+                                             text-white font-semibold rounded-3xl
+                                             shadow-[0_8px_30px_rgba(34,197,94,0.22)]
+                                             transition-all duration-200 active:scale-[0.99]"
                                 >
-                                    Đăng ký
-                                    <ArrowRight className="w-5 h-5" />
+                                    🚀 Đăng ký & Bắt đầu
                                 </button>
                             </form>
 
